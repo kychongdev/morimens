@@ -1,7 +1,6 @@
 import "./App.css";
 import { useTheme } from "./components/theme-provider";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { CharacterPage } from "./pages/Character";
 import { useEffect } from "react";
 
