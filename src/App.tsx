@@ -1,38 +1,57 @@
 import "./App.css";
-import { useTheme } from "./components/theme-provider";
-import { Switch } from "@/components/ui/switch";
-import { CharacterPage } from "./pages/Character";
-import { useEffect } from "react";
+import { useDisclosure } from "@mantine/hooks";
+import { Burger, useMantineColorScheme } from "@mantine/core";
+import { Switch, useMantineTheme, rem, Text } from "@mantine/core";
+import { IconSun, IconMoonStars } from "@tabler/icons-react";
 
 function App() {
-  const { setTheme, theme } = useTheme();
-  useEffect(() => {
-    const root = document.querySelector(":root");
-    if (theme == "light") {
-      // @ts-ignore
-      root.style.setProperty("color-scheme", "light");
-    } else if (theme == "dark") {
-      // @ts-ignore
-      root.style.setProperty("color-scheme", "dark");
-    }
-  }, [theme]);
+  const [opened, { toggle }] = useDisclosure();
+  const theme = useMantineTheme();
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
+
+  const sunIcon = (
+    <IconSun
+      style={{ width: rem(16), height: rem(16) }}
+      stroke={2.5}
+      color={theme.colors.yellow[4]}
+    />
+  );
+
+  const moonIcon = (
+    <IconMoonStars
+      style={{ width: rem(16), height: rem(16) }}
+      stroke={2.5}
+      color={theme.colors.blue[6]}
+    />
+  );
 
   return (
-    <>
-      <div className="flex justify-end mb-6">
-        <Switch
-          id="theme"
-          onCheckedChange={() => {
-            if (theme === "light") {
-              setTheme("dark");
-            } else if (theme === "dark") {
-              setTheme("light");
-            }
-          }}
-        />
-      </div>
-      <CharacterPage />
-    </>
+    <div className="flex justify-between px-3 lg:container lg:mx-auto">
+      <Burger
+        opened={opened}
+        onClick={toggle}
+        aria-label="Toggle navigation"
+        size="lg"
+      />
+      <Text className="self-center" size="lg">
+        <strong>忘卻之夜</strong>
+      </Text>
+      <Switch
+        defaultChecked={colorScheme == "dark"}
+        className="self-center"
+        size="lg"
+        color="dark.4"
+        onLabel={sunIcon}
+        offLabel={moonIcon}
+        onChange={(event) => {
+          if (event.currentTarget.checked) {
+            setColorScheme("dark");
+          } else {
+            setColorScheme("light");
+          }
+        }}
+      />
+    </div>
   );
 }
 
