@@ -4,7 +4,6 @@ import {
   Switch,
   useMantineTheme,
   rem,
-  Text,
   Button,
   UnstyledButton,
 } from "@mantine/core";
@@ -63,7 +62,7 @@ function App() {
         <div className="flex flex-wrap mt-3">
           <Button
             variant="filled"
-            color="yellow.4"
+            color="yellow.6"
             onClick={() => setPage("deepsea")}
           >
             深海

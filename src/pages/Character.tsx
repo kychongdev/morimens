@@ -1,6 +1,16 @@
 import { data } from "@/data/deepsea";
 import { useState } from "react";
-import { Select, Text, Image, Tabs, List, ThemeIcon, rem } from "@mantine/core";
+import {
+  Select,
+  Text,
+  Image,
+  Tabs,
+  List,
+  ThemeIcon,
+  Slider,
+  Title,
+  rem,
+} from "@mantine/core";
 import {
   IconSword,
   IconAlertTriangle,
@@ -10,6 +20,7 @@ import {
 
 export const DeepSeaCharacter = () => {
   const [char, setChar] = useState<string | null>();
+  const [level, setLevel] = useState(1);
   const charInfo = char ? data[parseInt(char)] : null;
   return (
     <>
@@ -28,9 +39,32 @@ export const DeepSeaCharacter = () => {
             <Tabs.List className="mb-2">
               <Tabs.Tab value="a">狀態</Tabs.Tab>
               <Tabs.Tab value="b">技能</Tabs.Tab>
+              <Tabs.Tab value="c">啟靈</Tabs.Tab>
+              <Tabs.Tab value="d">命論</Tabs.Tab>
+              <Tabs.Tab value="e">檔案</Tabs.Tab>
+              <Tabs.Tab value="f">機制</Tabs.Tab>
             </Tabs.List>
-            <Tabs.Panel value="a">
-              <Text c="yellow.4">體質： 102</Text>
+            <Tabs.Panel value="a" className="p-2">
+              <Title c="yellow.6" order={6}>
+                等級
+              </Title>
+              <Slider
+                className="my-3"
+                color="yellow"
+                min={1}
+                max={60}
+                value={level}
+                onChange={setLevel}
+              />
+              <Text size="sm" c="yellow.6">
+                體質： 102
+              </Text>
+              <Text size="sm" c="yellow.6">
+                攻擊： 102
+              </Text>
+              <Text size="sm" c="yellow.6">
+                防禦： 102
+              </Text>
             </Tabs.Panel>
             <Tabs.Panel className="p-2" value="b">
               <List spacing="xs">
@@ -44,7 +78,7 @@ export const DeepSeaCharacter = () => {
                     </ThemeIcon>
                   }
                 >
-                  <Text size="sm" c="yellow.4">
+                  <Text size="sm" c="yellow.6">
                     <b>{charInfo.skill1}</b>
                   </Text>
                 </List.Item>
@@ -56,7 +90,7 @@ export const DeepSeaCharacter = () => {
                     </ThemeIcon>
                   }
                 >
-                  <Text size="sm" c="yellow.4">
+                  <Text size="sm" c="yellow.6">
                     <b>{charInfo.skill2}</b>
                   </Text>
                 </List.Item>
@@ -70,7 +104,7 @@ export const DeepSeaCharacter = () => {
                     </ThemeIcon>
                   }
                 >
-                  <Text size="sm" c="yellow.4">
+                  <Text size="sm" c="yellow.6">
                     <b>{charInfo.skill3}</b>
                   </Text>
                 </List.Item>
@@ -82,7 +116,7 @@ export const DeepSeaCharacter = () => {
                     </ThemeIcon>
                   }
                 >
-                  <Text size="sm" c="yellow.4">
+                  <Text size="sm" c="yellow.6">
                     <b>{charInfo.skill4}</b>
                   </Text>
                 </List.Item>
@@ -94,14 +128,17 @@ export const DeepSeaCharacter = () => {
                     </ThemeIcon>
                   }
                 >
-                  <Text size="sm" c="yellow.4">
+                  <Text size="sm" c="yellow.6">
                     <b>{charInfo.skill5}</b>
                   </Text>
                 </List.Item>
               </List>
               <Text size="sm">{charInfo.skill5Info}</Text>
             </Tabs.Panel>
-            <Tabs.Panel value="c">Messages tab content</Tabs.Panel>
+            <Tabs.Panel value="c">啟靈</Tabs.Panel>
+            <Tabs.Panel value="d">專屬命輪</Tabs.Panel>
+            <Tabs.Panel value="e">檔案</Tabs.Panel>
+            <Tabs.Panel value="e">機制</Tabs.Panel>
           </Tabs>
         </>
       ) : null}
