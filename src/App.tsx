@@ -6,10 +6,13 @@ import {
   rem,
   Button,
   UnstyledButton,
+  Divider,
+  Title,
 } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import { DeepSeaCharacter } from "./pages/Character";
 import { useState } from "react";
+import { YellowButton } from "./components/YellowButton";
 
 function App() {
   const theme = useMantineTheme();
@@ -37,10 +40,10 @@ function App() {
       <div className="flex justify-between ">
         <UnstyledButton
           className="self-center"
-          size="lg"
+          size="xl"
           onClick={() => setPage("")}
         >
-          <strong>忘卻之夜</strong>
+          <div className="text-2xl font-bold">忘卻前夜</div>
         </UnstyledButton>
         <Switch
           defaultChecked={colorScheme == "dark"}
@@ -59,14 +62,24 @@ function App() {
         />
       </div>
       {page == "" ? (
-        <div className="flex flex-wrap mt-3">
-          <Button
-            variant="filled"
-            color="yellow.6"
-            onClick={() => setPage("deepsea")}
-          >
-            深海
-          </Button>
+        <div className="mt-2">
+          <Title c="yellow.6" order={4}>
+            界域
+          </Title>
+          <div className="flex flex-wrap mt-3 gap-3">
+            <YellowButton name="混沌" onClick={() => setPage("chaos")} />
+            <YellowButton name="深海" onClick={() => setPage("deepsea")} />
+            <YellowButton name="血肉" onClick={() => setPage("flesh")} />
+            <YellowButton name="超維" onClick={() => setPage("transcendent")} />
+          </div>
+          <Divider my="lg" />
+          <Title c="yellow.6" order={4}>
+            戰鬥
+          </Title>
+          <div className="flex flex-wrap mt-3 gap-3">
+            <YellowButton name="敵人" onClick={() => setPage("enemy")} />
+            <YellowButton name="造物" onClick={() => setPage("relic")} />
+          </div>
         </div>
       ) : null}
       {page == "deepsea" ? <DeepSeaCharacter /> : null}
