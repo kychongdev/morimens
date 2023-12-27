@@ -7,7 +7,6 @@ import {
   List,
   ThemeIcon,
   Title,
-  Divider,
 } from "@mantine/core";
 import {
   // IconAlertTriangle,
