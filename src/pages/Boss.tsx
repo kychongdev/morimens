@@ -4,6 +4,7 @@ import { useState } from "react";
 import { bossData } from "@/data/boss";
 import { BossInfo } from "./BossInfo";
 import { IconArrowBackUp } from "@tabler/icons-react";
+import { v4 as uuidv4 } from "uuid";
 
 export const Boss = () => {
   const [boss, setBoss] = useState("");
@@ -13,7 +14,7 @@ export const Boss = () => {
       {boss == ""
         ? bossData.map((item) => {
             return (
-              <div className="flex flex-wrap gap-2 md:gap-5">
+              <div key={uuidv4()} className="flex flex-wrap gap-2 md:gap-5">
                 <BossButton onClick={() => setBoss(item.id.toString())}>
                   <Image src={item.img} alt={item.name} />
                 </BossButton>

@@ -17,6 +17,7 @@ import {
 } from "@tabler/icons-react";
 import test from "../assets/boss/1.png";
 import { bossData } from "@/data/boss";
+import { v4 as uuidv4 } from "uuid";
 
 interface BossInfoProps {
   bossId: string;
@@ -37,7 +38,7 @@ export const BossInfo = ({ bossId }: BossInfoProps) => {
         <List spacing="xs">
           {data.skill.map((item) => {
             return (
-              <>
+              <div key={uuidv4()}>
                 <List.Item
                   icon={
                     <ThemeIcon variant="default" size={24} radius="xl">
@@ -56,13 +57,13 @@ export const BossInfo = ({ bossId }: BossInfoProps) => {
                 {item.passive !== undefined
                   ? item.passive.map((item2) => {
                       return (
-                        <Text size="sm" c="blue.6">
+                        <Text key={uuidv4()} size="sm" c="blue.6">
                           <b>{item2.info}</b>
                         </Text>
                       );
                     })
                   : null}
-              </>
+              </div>
             );
           })}
         </List>
@@ -70,7 +71,7 @@ export const BossInfo = ({ bossId }: BossInfoProps) => {
       <Accordion className="mt-5" variant="contained">
         {data.question.map((item) => {
           return (
-            <Accordion.Item value={item.value.toString()}>
+            <Accordion.Item key={uuidv4()} value={item.value.toString()}>
               <Accordion.Control
                 icon={
                   <IconQuestionMark
