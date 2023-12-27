@@ -4,7 +4,6 @@ import {
   Switch,
   useMantineTheme,
   rem,
-  Button,
   UnstyledButton,
   Divider,
   Title,

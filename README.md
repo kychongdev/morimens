@@ -1,4 +1,4 @@
-# A website that collet game info about the Morimens
+# A website that collect game info about the Morimens
 
 [Morimens](https://morimens.qookkagames.com/)
 
