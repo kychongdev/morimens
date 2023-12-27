@@ -9,9 +9,10 @@ import {
   Title,
 } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
-import { DeepSeaCharacter } from "./pages/Character";
+import { DeepSeaCharacter } from "./pages/Deepsea";
 import { useState } from "react";
 import { YellowButton } from "./components/YellowButton";
+import { Boss } from "./pages/Boss";
 
 function App() {
   const theme = useMantineTheme();
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="px-3 pt-2 lg:container lg:mx-auto">
-      <div className="flex justify-between ">
+      <div className="flex justify-between mb-2 ">
         <UnstyledButton
           className="self-center"
           size="xl"
@@ -61,7 +62,7 @@ function App() {
         />
       </div>
       {page == "" ? (
-        <div className="mt-2">
+        <div className="">
           <Title c="yellow.6" order={4}>
             界域
           </Title>
@@ -76,12 +77,13 @@ function App() {
             戰鬥
           </Title>
           <div className="flex flex-wrap mt-3 gap-3">
-            <YellowButton name="敵人" onClick={() => setPage("enemy")} />
+            <YellowButton name="王怪" onClick={() => setPage("boss")} />
             <YellowButton name="造物" onClick={() => setPage("relic")} />
           </div>
         </div>
       ) : null}
       {page == "deepsea" ? <DeepSeaCharacter /> : null}
+      {page == "boss" ? <Boss /> : null}
     </div>
   );
 }
