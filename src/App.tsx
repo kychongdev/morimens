@@ -64,7 +64,14 @@ function App() {
       {page == "" ? (
         <div className="">
           <Title c="yellow.6" order={4}>
-            界域
+            遊戲基礎
+          </Title>
+          <div className="flex flex-wrap mt-3 gap-3">
+            <YellowButton name="界域" onClick={() => setPage("realm")} />
+          </div>
+          <Divider my="lg" />
+          <Title c="yellow.6" order={4}>
+            角色
           </Title>
           <div className="flex flex-wrap mt-3 gap-3">
             <YellowButton name="混沌" onClick={() => setPage("chaos")} />
@@ -74,10 +81,20 @@ function App() {
           </div>
           <Divider my="lg" />
           <Title c="yellow.6" order={4}>
+            命輪
+          </Title>
+          <div className="flex flex-wrap mt-3 gap-3">
+            <YellowButton name="SSR" onClick={() => setPage("ssr")} />
+            <YellowButton name="SR" onClick={() => setPage("sr")} />
+            <YellowButton name="R" onClick={() => setPage("r")} />
+          </div>
+          <Divider my="lg" />
+          <Title c="yellow.6" order={4}>
             戰鬥
           </Title>
           <div className="flex flex-wrap mt-3 gap-3">
             <YellowButton name="王怪" onClick={() => setPage("boss")} />
+            <YellowButton name="精英" onClick={() => setPage("elite")} />
             <YellowButton name="造物" onClick={() => setPage("relic")} />
           </div>
         </div>

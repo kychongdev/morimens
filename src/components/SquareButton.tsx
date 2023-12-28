@@ -5,7 +5,7 @@ interface BossButtonProps {
   onClick: () => void;
 }
 
-export const BossButton = ({ children, onClick }: BossButtonProps) => {
+export const SquareButton = ({ children, onClick }: BossButtonProps) => {
   return (
     <UnstyledButton
       className="max-w-[80px] md:max-w-[120px] xl:max-w-[200px]"

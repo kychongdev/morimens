@@ -1,5 +1,5 @@
 import { Button, Image } from "@mantine/core";
-import { BossButton } from "@/components/BossButton";
+import { SquareButton } from "@/components/SquareButton";
 import { useState } from "react";
 import { bossData } from "@/data/boss";
 import { BossInfo } from "./BossInfo";
@@ -15,9 +15,9 @@ export const Boss = () => {
         ? bossData.map((item) => {
             return (
               <div key={uuidv4()} className="flex flex-wrap gap-2 md:gap-5">
-                <BossButton onClick={() => setBoss(item.id.toString())}>
+                <SquareButton onClick={() => setBoss(item.id.toString())}>
                   <Image src={item.img} alt={item.name} />
-                </BossButton>
+                </SquareButton>
               </div>
             );
           })
