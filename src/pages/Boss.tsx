@@ -11,17 +11,20 @@ export const Boss = () => {
 
   return (
     <>
-      {boss == ""
-        ? bossData.map((item) => {
-            return (
-              <div key={uuidv4()} className="flex flex-wrap gap-2 md:gap-5">
-                <SquareButton onClick={() => setBoss(item.id.toString())}>
+      <div className="flex flex-wrap gap-2 md:gap-5">
+        {boss == ""
+          ? bossData.map((item) => {
+              return (
+                <SquareButton
+                  key={uuidv4()}
+                  onClick={() => setBoss(item.id.toString())}
+                >
                   <Image src={item.img} alt={item.name} />
                 </SquareButton>
-              </div>
-            );
-          })
-        : null}
+              );
+            })
+          : null}
+      </div>
       {boss !== "" ? (
         <>
           <Button color="yellow" onClick={() => setBoss("")}>

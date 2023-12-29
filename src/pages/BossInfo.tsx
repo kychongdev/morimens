@@ -15,7 +15,6 @@ import {
   IconSword,
   // IconSwords,
 } from "@tabler/icons-react";
-import test from "../assets/boss/1.png";
 import { bossData } from "@/data/boss";
 import { v4 as uuidv4 } from "uuid";
 
@@ -30,7 +29,7 @@ export const BossInfo = ({ bossId }: BossInfoProps) => {
       <Title className="text-center" c={"yellow.6"} order={2}>
         {data.name}
       </Title>
-      <Image src={test} />
+      <Image src={data.img} alt={data.name} />
       <Paper className="my-5" shadow="xs" radius="xl" withBorder p="xl">
         <Text>{data.story}</Text>
       </Paper>
@@ -69,26 +68,28 @@ export const BossInfo = ({ bossId }: BossInfoProps) => {
         </List>
       </div>
       <Accordion className="mt-5" variant="contained">
-        {data.question.map((item) => {
-          return (
-            <Accordion.Item key={uuidv4()} value={item.value.toString()}>
-              <Accordion.Control
-                icon={
-                  <IconQuestionMark
-                    style={{
-                      color: "var(--mantine-color-red-6)",
-                      width: rem(20),
-                      height: rem(20),
-                    }}
-                  />
-                }
-              >
-                {item.title}
-              </Accordion.Control>
-              <Accordion.Panel>{item.info}</Accordion.Panel>
-            </Accordion.Item>
-          );
-        })}
+        {data.question && data.question.length > 0
+          ? data.question.map((item) => {
+              return (
+                <Accordion.Item key={uuidv4()} value={item.value.toString()}>
+                  <Accordion.Control
+                    icon={
+                      <IconQuestionMark
+                        style={{
+                          color: "var(--mantine-color-red-6)",
+                          width: rem(20),
+                          height: rem(20),
+                        }}
+                      />
+                    }
+                  >
+                    {item.title}
+                  </Accordion.Control>
+                  <Accordion.Panel>{item.info}</Accordion.Panel>
+                </Accordion.Item>
+              );
+            })
+          : null}
       </Accordion>
     </>
   );

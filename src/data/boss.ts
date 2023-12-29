@@ -1,9 +1,10 @@
 import zhanjin from "../assets/boss/1.png";
+import youwu from "../assets/boss/2.png";
 export const bossData = [
   {
     id: 0,
     img: zhanjin,
-    name: "竄行者「詹金」",
+    name: "竄行者 - 「詹金」",
     story: "她伸出鬼沒，對東區的每一個街巷都瞭若指掌，她就是「竄行者」.",
     skill: [
       {
@@ -51,5 +52,52 @@ export const bossData = [
         value: 1,
       },
     ],
+  },
+  {
+    id: 1,
+    img: youwu,
+    name: "「猩紅」- 尤烏哈希",
+    story: "自遙遠的群星而來, 現今世上最早的魔像.",
+    skill: [
+      {
+        name: "「開場」血之狂暴",
+        info: "發動2次，層次為【33%/66%】HP",
+        passive: [
+          {
+            info: "每失去1點生命降低1層. 層次降低為0時, 將意圖轉換為高額傷害的狂氣爆發.",
+          },
+        ],
+      },
+      {
+        name: "「招式」沸騰吧！血",
+        info: "造成4次X點傷害",
+      },
+      {
+        name: "「普通」攻擊",
+        info: "造成X點傷害",
+      },
+      {
+        name: "「招式」尖嘯吧！血",
+        info: "獲得X點護盾，施加X層出血",
+      },
+      {
+        name: "「招式」血怒連擊(破綻)",
+        info: "造成9次X傷害. 每受到一次",
+      },
+      {
+        name: "「派牌」",
+        info: "「尖嘯吧！血」後發動, 玩家獲得「契約迴響」【3費】",
+        passive: [
+          {
+            info: "將「猩紅」的一次行動意圖扭曲為低威脅的單次攻擊。 保留。幻影",
+          },
+        ],
+      },
+      {
+        name: "「覺醒」血之狂。終結",
+        info: "發動「血之狂暴」3次，層次為【10%/33%/33%】HP",
+      },
+    ],
+    question: [],
   },
 ];

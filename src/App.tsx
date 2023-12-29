@@ -36,7 +36,7 @@ function App() {
   );
 
   return (
-    <div className="px-3 pt-2 lg:container lg:mx-auto">
+    <div className="px-3 py-2 lg:container lg:mx-auto">
       <div className="flex justify-between mb-2 ">
         <UnstyledButton
           className="self-center"
